@@ -462,6 +462,57 @@ th {
   content: "\e615"; }
 
 /* General Styles */
+body {
+  font-size: 14px;
+  font-family: "Lato", sans-serif;
+  background-color: #18274d;
+  color: white; }
+
+.container {
+  margin-top: 50px; }
+
+h1 {
+  font-family: "Montserrat", sans-serif;
+  margin-top: 2.2em; }
+
+table {
+  width: 100%;
+  max-width: 950px;
+  margin: 0 auto;
+  text-align: center;
+  color: white; }
+  table thead {
+    background-color: #243a74;
+    border-right: 0.4em solid #18274d;
+    border-left: 0.4em solid #18274d; }
+    table thead th {
+      padding: .6em; }
+  table tbody {
+    white-space: nowrap; }
+    table tbody .mainRow {
+      background-color: #243a74;
+      border-right: 0.4em solid #18274d;
+      border-left: 0.4em solid #18274d;
+      border-top: 0.4em solid #18274d; }
+      table tbody .mainRow.odd {
+        background-color: #3251a3; }
+      table tbody .mainRow th, table tbody .mainRow td {
+        padding: 1em .4em; }
+  table th, table td {
+    font-size: 1em; }
+  table .child {
+    background-color: #c4cfed;
+    border-right: 0.4em solid #18274d;
+    border-left: 0.4em solid #18274d;
+    border-bottom: 1em solid #18274d; }
+    table .child .expandedRow {
+      border: none;
+      color: black; }
+      table .child .expandedRow td {
+        text-align: left;
+        list-style: none;
+        padding: .6em; }
+
 /* Tophat */
 #tophat {
   height: 40px;

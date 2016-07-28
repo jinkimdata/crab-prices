@@ -1,6 +1,10 @@
 - var datalink = "http://data.baltimoresun.com/PROJECTLINK/"
 - var datalink = ""
 
+//- Price data in array "priceData"
+//- JSON names include: name , city , address , phone , lgMaleDozen , lgMaleBushel
+include includes/priceData.jade
+
 doctype html
 //if lt IE 7
 	<html class="no-js lt-ie9 lt-ie8 lt-ie7">
@@ -12,11 +16,12 @@ html(class="no-js", lang="en")
 	head
 		//Basic page needs
 		meta(charset="utf-8")
-		title
+		title This week's Baltimore crab prices
 		meta(name="description", content="")
 		meta(name="author", content="Jin Bae Kim") 
 		meta(name="viewport", content="width=device-width, initial-scale=1, maximum-scale=1")
 		link(rel="stylesheet", type="text/css", href="#{datalink}css/style.css")
+		link(rel="stylesheet", type="text/css", href="#{datalink}fontello/css/fontello.css")
 		link(rel="stylesheet", type="text/css", href="http://fonts.googleapis.com/css?family=Old+Standard+TT|Lato|Montserrat")
 
 		//Facebook Stuff
@@ -36,15 +41,39 @@ html(class="no-js", lang="en")
 		meta(name="twitter:domain", content="baltimoresun.com")
 
 	body
-		//- include includes/omniture.html
+		include includes/omniture.html
 		
 		.container
-
+			h1 This week's Baltimore crab prices
+			#crabPrices
+				table#crabTable.crabTable
+					thead
+						tr
+							th
+							th Crab House
+							th City
+							th Address
+							th Phone #
+							th Dozen* Price
+							th Bushel* Price
+					tbody
+						each crabHouse, i in priceData
+							tr.mainRow
+								td 
+									i.icon-down-open
+								td #{crabHouse.name}
+								td #{crabHouse.city}
+								td #{crabHouse.address}
+								td #{crabHouse.phone}
+								td $#{crabHouse.lgMaleDozen}
+								td $#{crabHouse.lgMaleBushel}
 		//- #leaderboard			
 		//- 	include includes/ad-for-body.html
 		
 		//Javascript
-		script(src="#{datalink}js/min/jquery-3.0.0.min.js")
+		script(src="https://code.jquery.com/jquery-1.12.3.min.js")
+		script(src="http://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js")
+		script(src="https://cdn.datatables.net/responsive/2.1.0/js/dataTables.responsive.min.js")
 		script(src="#{datalink}js/app.js")
 		//- script(src="#{datalink}js/app.min.js")
 

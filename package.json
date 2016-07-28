@@ -1,12 +1,12 @@
 {
-  "name": "PROJ-NAME-HERE",
+  "name": "crab-prices",
   "version": "1.0.0",
-  "description": "PROJ-NAME-HERE",
+  "description": "crab-prices",
   "main": "index.js",
   "scripts": {
     "jade": "jade  -P -p src/index.jade < src/index.jade > dist/index.html",
     "sass": "node-sass -o dist/css src/sass",
-    "uglify": "mkdir -p dist/js && uglifyjs src/js/jquery-3.0.0.min.js src/js/javascript.js -b -o dist/js/app.js",
+    "uglify": "mkdir -p dist/js && uglifyjs src/js/javascript.js -b -o dist/js/app.js",
     "imagemin": "imagemin src/images dist/images -p",
     "icons": "svgo -f src/images/icons && mkdir -p dist/images && svg-sprite-generate -d src/images/icons -o dist/images/icons.svg",
     "serve": "browser-sync start --server dist 'dist/css/*.css, dist/js/*.js'",
@@ -28,19 +28,20 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/jinkimdata/PROJ-NAME-HERE.git"
+    "url": "git+https://github.com/jinkimdata/crab-prices.git"
   },
-  "keywords": [],
+  "keywords": ["baltimore sun"],
   "author": "Jin Bae Kim",
   "license": "",
   "bugs": {
-    "url": "https://github.com/jinkimdata/PROJ-NAME-HERE/issues"
+    "url": "https://github.com/jinkimdata/crab-prices/issues"
   },
-  "homepage": "https://github.com/jinkimdata/PROJ-NAME-HERE#readme",
+  "homepage": "https://github.com/jinkimdata/crab-prices#readme",
   "devDependencies": {
     "browser-sync": "latest",
     "eslint": "latest",
     "imagemin": "latest",
+    "jade": "latest",
     "node-sass": "latest",
     "onchange": "latest",
     "parallelshell": "latest",

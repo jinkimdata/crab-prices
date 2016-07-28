@@ -7,9 +7,55 @@
 
 /* General Styles */
 
-// body
-
-// .container
+body
+	font-size: 14px
+	font-family: $lato
+	background-color: darken($oldBayBlue, 10)
+	color: white
+.container
+	margin-top: 50px
+h1
+	font-family: $montserrat
+	margin-top: 2.2em
+table
+	width: 100%
+	max-width: 950px
+	margin: 0 auto
+	text-align: center
+	color: white
+	thead
+		background-color: $oldBayBlue
+		border-right: .4em solid darken($oldBayBlue, 10)
+		border-left: .4em solid darken($oldBayBlue, 10)
+		th
+			padding: .6em 
+	tbody
+		white-space: nowrap
+		.mainRow
+			background-color: $oldBayBlue
+			border-right: .4em solid darken($oldBayBlue, 10)
+			border-left: .4em solid darken($oldBayBlue, 10)
+			border-top: .4em solid darken($oldBayBlue, 10)
+			&.odd
+				background-color: lighten($oldBayBlue, 12)
+			th, td
+				padding: 1em .4em 
+	th, td
+		font-size: 1em
+		// border-bottom: 1px dashed gray
+	.child
+		background-color: lighten($oldBayBlue, 55)
+		border-right: .4em solid darken($oldBayBlue, 10)
+		border-left: .4em solid darken($oldBayBlue, 10)
+		border-bottom: 1em solid darken($oldBayBlue, 10)
+		.expandedRow
+			// background-color: $oldBayYellow
+			border: none
+			color: black
+			td
+				text-align: left		
+				list-style: none
+				padding: .6em 
 
 /* Tophat */
 #tophat
