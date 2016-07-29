@@ -1,5 +1,5 @@
-- var datalink = "http://data.baltimoresun.com/PROJECTLINK/"
-- var datalink = ""
+- var datalink = "http://data.baltimoresun.com/crab-prices/"
+//- var datalink = ""
 
 //- Price data in array "priceData"
 //- JSON names include: name , city , address , phone , lgMaleDozen , lgMaleBushel
@@ -16,8 +16,8 @@ html(class="no-js", lang="en")
 	head
 		//Basic page needs
 		meta(charset="utf-8")
-		title This week's Baltimore crab prices
-		meta(name="description", content="")
+		title Baltimore area crab prices
+		meta(name="description", content="Compare prices between some of the most popular crab houses in the Baltimore area.")
 		meta(name="author", content="Jin Bae Kim") 
 		meta(name="viewport", content="width=device-width, initial-scale=1, maximum-scale=1")
 		link(rel="stylesheet", type="text/css", href="#{datalink}css/style.css")
@@ -25,41 +25,65 @@ html(class="no-js", lang="en")
 		link(rel="stylesheet", type="text/css", href="http://fonts.googleapis.com/css?family=Old+Standard+TT|Lato|Montserrat")
 
 		//Facebook Stuff
-		meta(property="og:title", content="")
-		meta(property="og:url", content="")
-		meta(property="og:image", content="")
+		meta(property="og:title", content="Baltimore area crab prices")
+		meta(property="og:url", content="http://data.baltimoresun.com/crab-prices/")
+		meta(property="og:image", content="http://data.baltimoresun.com/crab-prices/images/crab-prices-thumb.png")
 		meta(property="og:site_name", content="The Baltimore Sun")
-		meta(property="og:description", content="")
+		meta(property="og:description", content="Compare prices between some of the most popular crab houses in the Baltimore area.")
 		meta(property="fb:app_id", content="310302989040998")
 		//Twitter Stuff
 		meta(name="twitter:card", content="summary")
 		meta(name="twitter:site", content="@baltimoresun")
-		meta(name="twitter:creator", content="")
-		meta(name="twitter:title", content="")
-		meta(name="twitter:description", content="")
-		meta(name="twitter:image", content="")
+		meta(name="twitter:creator", content="@baltsundata")
+		meta(name="twitter:title", content="Baltimore area crab prices")
+		meta(name="twitter:description", content="Compare prices between some of the most popular crab houses in the Baltimore area.")
+		meta(name="twitter:image", content="http://data.baltimoresun.com/crab-prices/images/crab-prices-thumb.png")
 		meta(name="twitter:domain", content="baltimoresun.com")
 
 	body
 		include includes/omniture.html
-		
 		.container
-			h1 This week's Baltimore crab prices
+			h1 Baltimore area crab prices
+			p.date Updated July 28, 2016
+			.shareTools
+				i.icon-twitter
+				i.icon-facebook
+			p.chatter.intro This has been a plentiful season for Maryland crabbers and crab lovers. A robust harvest has kept local crab sellers stocked with Maryland blue crabs. But has this had an effect on local crab prices? All indications are that it has not.
+			.display.button.priceTableHead(data-btnType="table")
+				h2 View the price table below 
+					i.icon-down-open
+			.display.button.mapButton(data-btnType="map")
+				h2 Find a crab house near you 
+					i.icon-location
+			p.chatter We called 30 crab shacks in the Baltimore area to get an idea of the average price of crabs right now. We only called establishments that offer steamed crabs to-go and asked prices for large males by the dozen and bushel.*
+			p.chatter According to data collected by the Baltimore Sun from the Maryland Department of Agriculture, the average price for a dozen large crabs in Maryland in 2013 was $38 and in 2014 was $35 (data for 2015 was not collected).
+			//- p.chatter 
+				a.readMore(href="LINKTOSTORY" target="_blank") Read more 
+				| from Sun Reporter Pamela Wood
+			.averagePrice
+				img(src="#{datalink}images/avg-price.png")
+			a.anchor.tableAnchor(name="tableAnchor")
 			#crabPrices
 				table#crabTable.crabTable
 					thead
 						tr
 							th
 							th Crab House
+								i.icon-sort
 							th City
+								i.icon-sort
 							th Address
+								i.icon-sort
 							th Phone #
-							th Dozen* Price
-							th Bushel* Price
-					tbody
+								i.icon-sort
+							th 12 lg. males*
+								i.icon-sort
+							th Bushel*
+								i.icon-sort
+					tbody.mainBody
 						each crabHouse, i in priceData
 							tr.mainRow
-								td 
+								td.cursorPointer
 									i.icon-down-open
 								td #{crabHouse.name}
 								td #{crabHouse.city}
@@ -67,6 +91,11 @@ html(class="no-js", lang="en")
 								td #{crabHouse.phone}
 								td $#{crabHouse.lgMaleDozen}
 								td $#{crabHouse.lgMaleBushel}
+			hr.separator
+			a.anchor.mapAnchor(name="mapAnchor")
+			iframe.map(width="100%" height="520" frameborder="0" src="https://baltsun.carto.com/viz/892f5594-559d-11e6-a29e-0e233c30368f/embed_map" allowfullscreen webkitallowfullscreen mozallowfullscreen oallowfullscreen msallowfullscreen)
+			p.disclaimer *Prices are retail for large male crabs. Each retailer uses its own scale, but larges often are at least 6" in size, and a bushel will contain six to seven dozen crabs. Crab prices fluctuate throughout the season. We performed our survey on July 29, 2016, but prices could change at any time.
+			a.credits(href="http://baltimoresun.com/data") baltsundata
 		//- #leaderboard			
 		//- 	include includes/ad-for-body.html
 		
@@ -74,8 +103,8 @@ html(class="no-js", lang="en")
 		script(src="https://code.jquery.com/jquery-1.12.3.min.js")
 		script(src="http://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js")
 		script(src="https://cdn.datatables.net/responsive/2.1.0/js/dataTables.responsive.min.js")
-		script(src="#{datalink}js/app.js")
-		//- script(src="#{datalink}js/app.min.js")
+		//- script(src="#{datalink}js/app.js")
+		script(src="#{datalink}js/app.min.js")
 
 		//- include includes/ad-for-header.html
 	

@@ -6,57 +6,154 @@
 @import "fonts"
 
 /* General Styles */
+$mainColor: $oldBayBlue
+$base: darken($mainColor, 13)
+// Accent guide
+// w == white / off-white
+// g == gray
+// c{x} == color accent of {x}
+// {x}L# == lighter versions of {x}
+// {x}D# == darker versions of {x}
+$accentw: white
+$accentg: gray
+$accentcB: $mainColor
+$accentcBL1: lighten($accentcB, 12)
+$accentcBL5: lighten($accentcB, 55)
+$accentcBD2: darken($accentcB, 25)
+$accentcG: lighten(saturate($goldenrod, 25), 10)
+$accentcGD: $goldenrod
+
+$mainTextColor: $accentw
+$accentTextColor: $accentcG
+$accentTextColor2: $accentcGD
 
 body
 	font-size: 14px
 	font-family: $lato
-	background-color: darken($oldBayBlue, 10)
-	color: white
+	background-color: $base
+	color: $mainTextColor
+	@media(min-width: 500px)
+		font-size: 16px
+	@media(min-width: 600px)
+		font-size: 18px
 .container
+	margin: 0 auto
 	margin-top: 50px
-h1
+	padding: .6em	
+	max-width: 1200px
+	text-align: left
+h1, h2
 	font-family: $montserrat
-	margin-top: 2.2em
+h1
+	margin-bottom: 0
+	color: $accentcG
+h2
+	font-size: 1em
+a
+	text-decoration: none
+	color: $accentTextColor
+.date 
+	font-size: .8em
+	margin-top: .2em
+	color: $mainTextColor
+.intro
+	font-size: 1.2em
+.display
+	background-color: $accentcBL1
+	padding: .5em
+	margin: 1em auto
+	border-bottom: .3em solid $accentcBD2
+	border-right: .3em solid $accentcBD2
+	text-align: center
+	cursor: pointer
+	+transition(all .5s)
+	&:hover
+		background-color: lighten($accentcBL1, 10)
+		border-bottom: .5em solid $accentcBD2
+		border-right: .5em solid $accentcBD2
+	@media(min-width: 1000px)
+		max-width: 600px
+.shareTools
+	position: absolute
+	top: 55px
+	right: 0
+	font-size: 1.3em
+	cursor: pointer
+	@media(min-width: 700px)
+		font-size: 2em
+	i
+		+transition(color .5s)
+		margin: 0 .2em
+		&:hover
+			color: $accentcBL1
+.averagePrice
+	text-align: center
+	width: 100%
+	margin: 0 auto
+	padding: .5em
+	img
+		width: 100%
+		max-width: 550px
+.cursorPointer
+	cursor: pointer
 table
 	width: 100%
-	max-width: 950px
-	margin: 0 auto
 	text-align: center
-	color: white
 	thead
-		background-color: $oldBayBlue
-		border-right: .4em solid darken($oldBayBlue, 10)
-		border-left: .4em solid darken($oldBayBlue, 10)
-		th
-			padding: .6em 
+		background-color: $accentcB
+		border-right: .3em solid $accentcBD2
+		// border-bottom: .3em solid $accentcBD2
+		cursor: pointer
+		@media(min-width: 1000px)
+			border: none
 	tbody
-		white-space: nowrap
 		.mainRow
-			background-color: $oldBayBlue
-			border-right: .4em solid darken($oldBayBlue, 10)
-			border-left: .4em solid darken($oldBayBlue, 10)
-			border-top: .4em solid darken($oldBayBlue, 10)
+			white-space: nowrap
+			background-color: $accentcB
+			border-top: .3em solid $accentcBD2
+			border-right: .3em solid $accentcBD2
+			@media(min-width: 1000px)
+				border: none
 			&.odd
-				background-color: lighten($oldBayBlue, 12)
-			th, td
-				padding: 1em .4em 
+				background-color: $accentcBL1
+	.mainBody
+		border-bottom: .3em solid $accentcBD2
 	th, td
-		font-size: 1em
-		// border-bottom: 1px dashed gray
+		padding: 1em .4em
+		@media(min-width: 1000px)
+			padding: 1.5em .6em
 	.child
-		background-color: lighten($oldBayBlue, 55)
-		border-right: .4em solid darken($oldBayBlue, 10)
-		border-left: .4em solid darken($oldBayBlue, 10)
-		border-bottom: 1em solid darken($oldBayBlue, 10)
+		background-color: $accentcBL5
+		border-bottom: .6em solid $accentcBD2
+		border-right: .3em solid $accentcBD2
 		.expandedRow
-			// background-color: $oldBayYellow
 			border: none
 			color: black
 			td
-				text-align: left		
+				text-align: left
 				list-style: none
-				padding: .6em 
-
+				padding: .6em
+			i
+				display: none
+			a
+				color: $accentTextColor2
+.map, .mapAnchor
+	display: none
+	@media(min-width: 700px)
+		display: block
+.separator
+	display: block
+	height: 0
+	border: 0
+	border-top: .2em solid $accentcBD2
+	margin: 1.5em auto
+	padding: 0
+.map
+	margin: 0 auto
+	// border-top: .2em solid $accentcBD2
+.credits
+	float: right
+	font-size: .8em
 /* Tophat */
 #tophat
 	height: 40px
