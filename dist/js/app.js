@@ -47,9 +47,6 @@ var crabPrices = {
             paging: false,
             bInfo: false,
             bFilter: false,
-            fixedHeader: {
-                header: true
-            },
             responsive: {
                 details: {
                     renderer: function(api, rowIdx, columns) {
