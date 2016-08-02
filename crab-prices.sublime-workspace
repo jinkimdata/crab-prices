@@ -51,7 +51,7 @@
 			"file": "src/index.jade",
 			"settings":
 			{
-				"buffer_size": 5230,
+				"buffer_size": 5323,
 				"line_ending": "Unix"
 			}
 		},
@@ -383,15 +383,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 5230,
+						"buffer_size": 5323,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								923,
-								836
+								665,
+								665
 							]
 						],
 						"settings":
